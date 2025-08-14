@@ -540,6 +540,27 @@
     // JavaScript to dynamically set the current year
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const openMenuBtn = document.getElementById("open-mobile-menu");
+  const mobileMenu = document.getElementById("mobile-menu"); // your menu container
+  const menuLinks = mobileMenu.querySelectorAll("a, span");
+
+  // Toggle menu on hamburger click
+  openMenuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // Close menu when a menu item is clicked
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+});
+</script>
+
+
     <script>
         $(document).ready(function(){
             $('.logo-slider').slick({
