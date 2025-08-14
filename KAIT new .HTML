@@ -1,0 +1,577 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>tailwind.config = {
+  "theme": {
+    "extend": {
+      "colors": {
+        "white": "#FFFFFF",
+        "charcoal": "#161C1F",
+        "blue": "rgba(0,90,164,0.96)",
+        "blueLight": "rgba(0,90,164,0.1)"
+      },
+      "fontFamily": {
+        "sans": [
+          "Inter",
+          "sans-serif"
+        ]
+      }
+    }
+  }
+};</script>
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo-slider .slick-track {
+            display: flex;
+            align-items: center;
+        }
+        .logo-slider .slick-slide {
+            display: flex;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        .liquid-animation {
+            animation: liquid 8s ease-in-out infinite;
+        }
+        @keyframes liquid {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap"><style>
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+      
+      /* Preserve Font Awesome icons */
+      .fa, .fas, .far, .fal, .fab {
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+      }
+    </style><style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+
+  </style></head>
+<body class="font-sans text-charcoal bg-white">
+    
+<!-- Header -->
+<header id="header" class="fixed w-full top-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between w-full relative">
+      
+      <!-- Left: Logo -->
+      <div class="flex-shrink-0">
+        <a href="/">
+          <img src="images/KIT-Logo-Transparent.png" alt="KAIT Logo" class="h-10 md:h-12 w-auto" />
+        </a>
+      </div>
+
+      <!-- Center: Navigation (hidden on mobile) -->
+      <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6">
+        <span class="text-charcoal hover:text-blue transition cursor-pointer">Process</span>
+        <span class="text-charcoal hover:text-blue transition cursor-pointer">Blueprint</span>
+        <span class="text-charcoal hover:text-blue transition cursor-pointer">Value</span>
+      </nav>
+
+      <!-- Right: Buttons -->
+      <div class="flex items-center space-x-4">
+        <span class="hidden md:inline-block text-charcoal hover:text-blue cursor-pointer">Contact</span>
+        <button class="hidden sm:flex bg-blue text-white px-4 py-2 text-sm md:text-base rounded-md hover:bg-opacity-90 items-center">
+          Get Started <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+        </button>
+
+        <!-- Hamburger Icon (Mobile only) -->
+        <button id="open-mobile-menu" class="md:hidden text-charcoal">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white z-40 px-6 py-10 transform -translate-x-full transition-transform duration-300 md:hidden">
+  <!-- Close Button -->
+  <div class="flex justify-end">
+<button id="close-mobile-menu" class="text-charcoal text-2xl" style="z-index: 1000;">X</button>
+
+  </div>
+
+  <!-- Menu Links -->
+  <nav class="mt-8 space-y-6 text-lg text-charcoal">
+    <a href="#process" class="block hover:text-blue">Process</a>
+    <a href="#blueprint" class="block hover:text-blue">Blueprint</a>
+    <a href="#value" class="block hover:text-blue">Value</a>
+    <a href="#contact" class="block hover:text-blue">Contact</a>
+    <a href="#get-started" class="block bg-blue text-white px-4 py-2 rounded-md text-center w-full">Get Started</a>
+  </nav>
+</div>
+
+<!-- Script -->
+<script>
+  const openBtn = document.getElementById("open-mobile-menu");
+  const closeBtn = document.getElementById("close-mobile-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  openBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("-translate-x-full");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("-translate-x-full");
+  });
+</script>
+
+
+
+<!-- Hero Section -->
+<section id="hero" class="pt-32 pb-16 md:pt-40 h-auto md:h-[800px] flex items-center relative overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+      
+      <!-- Text Content -->
+      <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 text-center md:text-left">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          The Architect's Promise: <span class="text-blue">Building Your Digital Future</span>
+        </h1>
+        <p class="text-base sm:text-lg mb-8 text-charcoal opacity-80 leading-relaxed">
+          KAIT Consulting delivers enterprise-grade digital architecture solutions that transform your IT infrastructure. We bridge the gap between business needs and technical implementation with precision and expertise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <button class="bg-blue text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all flex items-center justify-center">
+            Schedule Consultation
+            <i class="fa-solid fa-calendar-check ml-2"></i>
+          </button>
+          <button class="border border-blue text-blue px-6 py-3 rounded-md hover:bg-blueLight transition-all flex items-center justify-center">
+            Explore Services
+            <i class="fa-solid fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Image Content -->
+      <div class="md:w-1/2 w-full relative">
+        <div class="relative z-10 liquid-animation overflow-hidden rounded-2xl shadow-xl max-w-[450px] mx-auto">
+          <img class="w-full h-auto object-contain max-h-[400px] md:max-h-[800px]" src="images/La_G_-removebg-preview (1).png" alt="khursheed sb img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Client Logo Slider -->
+    <section id="clients" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-center mb-10">Trusted By Industry Leaders</h2>
+            <div class="logo-slider">
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 1</div></div>
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 2</div></div>
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 3</div></div>
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 4</div></div>
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 5</div></div>
+                <div class="px-4"><div class="h-12 bg-gray-200 rounded flex items-center justify-center px-6">Client 6</div></div>
+            </div>
+        </div>
+    </section>
+
+<!-- Process Section -->
+<section id="process" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                Precision in Process. Power in Productivity.
+            </h2>
+            <p class="text-base sm:text-lg text-charcoal opacity-80 max-w-3xl mx-auto">
+                Our methodical approach to digital architecture ensures that every solution is built on a foundation of best practices, industry standards, and innovative thinking.
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <div class="relative">
+                <!-- Process Steps -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue opacity-20"></div>
+
+                <!-- Step 1 -->
+                <div id="process-step-1" class="relative mb-16">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-1/2 md:pr-10 md:text-right text-left">
+                            <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue text-white text-xl font-bold">1</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3">Discovery &amp; Assessment</h3>
+                            <p class="text-charcoal opacity-80">
+                                We analyze your current architecture, identify pain points, and understand your business goals to establish a clear vision.
+                            </p>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-10">
+                            <div class="bg-blueLight p-6 rounded-lg">
+                                <i class="fa-solid fa-magnifying-glass-chart text-blue text-3xl sm:text-4xl mb-4"></i>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Infrastructure Analysis</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Business Requirement Gathering</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Gap Identification</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="process-step-2" class="relative mb-16">
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                        <div class="w-full md:w-1/2 md:pl-10 md:text-left text-left">
+                            <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue text-white text-xl font-bold">2</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3">Strategic Planning</h3>
+                            <p class="text-charcoal opacity-80">
+                                We develop a comprehensive roadmap that aligns technology with your business objectives for sustainable growth.
+                            </p>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pr-10">
+                            <div class="bg-blueLight p-6 rounded-lg">
+                                <i class="fa-solid fa-compass-drafting text-blue text-3xl sm:text-4xl mb-4"></i>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Architecture Blueprint Creation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Technology Stack Selection</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Implementation Roadmap</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="process-step-3" class="relative">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-1/2 md:pr-10 md:text-right text-left">
+                            <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue text-white text-xl font-bold">3</div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3">Implementation &amp; Optimization</h3>
+                            <p class="text-charcoal opacity-80">
+                                We execute the plan with precision, ensuring seamless integration and continuous improvement of your digital architecture.
+                            </p>
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-10">
+                            <div class="bg-blueLight p-6 rounded-lg">
+                                <i class="fa-solid fa-gears text-blue text-3xl sm:text-4xl mb-4"></i>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Agile Implementation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Continuous Integration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-check text-blue mt-1 mr-2"></i>
+                                        <span>Performance Monitoring</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Principles Section -->
+    <section id="principles" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The KAIT Blueprint</h2>
+                <p class="text-lg text-charcoal opacity-80 max-w-3xl mx-auto">
+                    Our core principles guide every project we undertake, ensuring consistent quality and exceptional results.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Principle 1 -->
+                <div id="principle-1" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="bg-blueLight w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-lightbulb text-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Knowledge-Driven</h3>
+                    <p class="text-charcoal opacity-80">
+                        We leverage deep industry expertise and stay at the forefront of technological advancements to deliver informed solutions.
+                    </p>
+                </div>
+                
+                <!-- Principle 2 -->
+                <div id="principle-2" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="bg-blueLight w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-arrows-to-circle text-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Alignment</h3>
+                    <p class="text-charcoal opacity-80">
+                        We ensure perfect alignment between business objectives and technical implementation for maximum impact and ROI.
+                    </p>
+                </div>
+                
+                <!-- Principle 3 -->
+                <div id="principle-3" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="bg-blueLight w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-eye text-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
+                    <p class="text-charcoal opacity-80">
+                        We embrace creative problem-solving and forward-thinking approaches to address complex architectural challenges.
+                    </p>
+                </div>
+                
+                <!-- Principle 4 -->
+                <div id="principle-4" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="bg-blueLight w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-shield-halved text-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Trust</h3>
+                    <p class="text-charcoal opacity-80">
+                        We build lasting relationships through transparency, accountability, and consistently delivering on our promises.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Statement -->
+    <section id="value" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Beyond the Solution</h2>
+                    <p class="text-lg text-charcoal opacity-80 mb-6 leading-relaxed">
+                        At KAIT Consulting, we don't just deliver technical solutions—we create architectural foundations that empower your business to thrive in an ever-evolving digital landscape.
+                    </p>
+                    <p class="text-lg text-charcoal opacity-80 mb-8 leading-relaxed">
+                        Our commitment extends beyond project completion. We provide ongoing support, knowledge transfer, and strategic guidance to ensure your digital architecture continues to serve your business objectives for years to come.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex -space-x-4">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Team member">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Team member">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Team member">
+                        </div>
+                        <p class="text-charcoal opacity-80">Meet our expert team</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="glass-effect p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 bg-blue rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa-solid fa-quote-left text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Michael Johnson</h4>
+                                <p class="text-charcoal opacity-70">CTO, Global Enterprises</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-charcoal opacity-80 italic mb-6">
+                            "KAIT Consulting transformed our fragmented IT infrastructure into a cohesive, scalable architecture that has increased our operational efficiency by 40% and positioned us for future growth."
+                        </blockquote>
+                        <div class="flex">
+                            <i class="fa-solid fa-star text-blue"></i>
+                            <i class="fa-solid fa-star text-blue"></i>
+                            <i class="fa-solid fa-star text-blue"></i>
+                            <i class="fa-solid fa-star text-blue"></i>
+                            <i class="fa-solid fa-star text-blue"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section id="lead-magnet" class="py-16 bg-blue text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Digital Architecture Checklist</h2>
+                <p class="text-lg mb-8 opacity-90 leading-relaxed">
+                    Evaluate your current digital architecture with our comprehensive checklist. Identify gaps, opportunities, and next steps to optimize your IT infrastructure.
+                </p>
+                <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-white">
+                    <button type="submit" class="bg-white text-blue px-6 py-3 rounded-md hover:bg-opacity-90 transition-all font-medium flex items-center justify-center">
+                        Download Now
+                        <i class="fa-solid fa-download ml-2"></i>
+                    </button>
+                </form>
+                <p class="text-sm mt-4 opacity-70">
+                    We respect your privacy. Your information will never be shared with third parties.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                  <!-- Footer logo -->
+<div class="mb-4">
+  <img src="images/KIT-Logo-Transparent.png" alt="KAIT Consulting Logo" class="h-12 w-auto">
+</div>
+
+                    <p class="text-charcoal opacity-70 mb-4">
+                        Building tomorrow's digital architecture for today's business challenges.
+                    </p>
+                    <div class="flex space-x-4">
+                        <span class="text-blue hover:text-opacity-80 transition-colors cursor-pointer">
+                            <i class="fa-brands fa-linkedin text-xl"></i>
+                        </span>
+                        <span class="text-blue hover:text-opacity-80 transition-colors cursor-pointer">
+                            <i class="fa-brands fa-twitter text-xl"></i>
+                        </span>
+                        <span class="text-blue hover:text-opacity-80 transition-colors cursor-pointer">
+                            <i class="fa-brands fa-facebook text-xl"></i>
+                        </span>
+                        <span class="text-blue hover:text-opacity-80 transition-colors cursor-pointer">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-blue font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">Digital Architecture</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">IT Consulting</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">Cloud Migration</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">System Integration</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-blue font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">About Us</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">Team</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">Careers</span></li>
+                        <li><span class="text-charcoal opacity-70 hover:text-blue transition-colors cursor-pointer">Case Studies</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-blue font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-envelope text-blue mt-1 mr-2"></i>
+                            <span class="text-charcoal opacity-70">info@kaitconsulting.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-phone text-blue mt-1 mr-2"></i>
+                            <span class="text-charcoal opacity-70">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot text-blue mt-1 mr-2"></i>
+                            <span class="text-charcoal opacity-70">123 Tech Plaza, Suite 400<br>San Francisco, CA 94105</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+          <div class="text-center pt-4 border-top border-light">
+    <p class="text-muted small mb-0">
+        © <span id="year"></span> KAIT Consulting. All rights reserved.
+    </p>
+</div>
+
+
+
+        </div>
+    </footer>
+<script>
+    // JavaScript to dynamically set the current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+    <script>
+        $(document).ready(function(){
+            $('.logo-slider').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 520,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body></html>
